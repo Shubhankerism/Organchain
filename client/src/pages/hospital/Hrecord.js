@@ -1,7 +1,6 @@
 import React from "react";
 import HosDrawer from "./HospitalNav";
 //import Web3 from 'web3';
-import getWeb3 from "./getWeb3";
 import OC from './oc';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon } from "mdbreact";
 //import hospital from "./images/hospital.png";
@@ -14,12 +13,6 @@ class Hrecord extends React.Component {
     }
     componentDidMount = async () => {
         console.log("Hello from record download")
-        // Get network provider and web3 instance.
-        const web3 = await getWeb3();
-        // Use web3 to get the user's accounts.
-        const accounts = await web3.eth.getAccounts();
-        this.setState({ account: accounts[0] });
-        console.log(this.state.account);
     }
 
     onChange(e) {
@@ -29,7 +22,7 @@ class Hrecord extends React.Component {
     onSubmit = async () => {
         event.preventDefault();
         console.log("record ke submit ke andar");
-        OC.methods.EMR(this.state.donorkey).call(this.state.account).then((emrhash) => {
+        OC.methods.EMR(this.state.donorkey).call().then((emrhash) => {
             this.setState({ EMRHash: emrhash });
             console.log(this.state.EMRHash);
         });

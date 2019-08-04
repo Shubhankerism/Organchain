@@ -4,6 +4,7 @@
       MDBRow, MDBCol, MDBContainer} from "mdbreact";
       // import "./app.css";
       import Routes from "./Routes";
+      import getWeb3 from "./getWeb3";
       
      // var authenticated = window.localStorage.getItem("isAuthenticated");
       
@@ -26,12 +27,23 @@
       });
       };
 
-      loginUser(data)
+      loginUser=async(data)=>
       {
         console.log("hello from loginUser");
         console.log(data);
         window.localStorage.setItem("isAuthenticated","true");
         window.localStorage.setItem("token",data.token);
+         window.localStorage.setItem("firstLoad","false");
+
+        // // Get network provider and web3 instance.
+        // const web3 = await getWeb3();
+        // console.log("kuch bhi");
+        // // Use web3 to get the user's accounts.
+        // const accounts = await web3.eth.getAccounts();
+        // console.log(accounts);
+        // window.localStorage.setItem("web3account",accounts[0]);
+
+
         this.setState({authenticated:true, }, () => {
           document.querySelector("#hospital").click();
         });
@@ -44,6 +56,8 @@
         });
         window.localStorage.removeItem("isAuthenticated");
         window.localStorage.removeItem("token");
+        window.localStorage.removeItem("web3account");
+        window.localStorage.removeItem("firstLoad");
       }
 
       render() {

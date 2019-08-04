@@ -25,13 +25,9 @@ class Hrecord extends React.Component {
     }
     componentDidMount = async () => {
         console.log("Approve ke component ke andar");
-        // Get network provider and web3 instance.
-        const web3 = await getWeb3();
-        // Use web3 to get the user's accounts.
-        const accounts = await web3.eth.getAccounts();
-        this.setState({ account: accounts[0] });
+        const acc = await window.localStorage.getItem("web3account");
+        this.setState({ account: acc });
         console.log(this.state.account);
-        
     }
     onfileChange(e) {
         event.preventDefault()
@@ -102,6 +98,10 @@ class Hrecord extends React.Component {
                                 console.log("donor gaya in blockchain");
                             }
                         });
+            //             axios.get(`/api/deletedonor/${this.state.name}/${this.state.email}`)
+            //             .then(async (res) => {
+            //     console.log(res);
+            // });
 
                 }, 15000);
 

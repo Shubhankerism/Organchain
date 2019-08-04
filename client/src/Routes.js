@@ -21,6 +21,9 @@ import Hmatch from "./pages/hospital/Hmatch";
 import Hrecord from "./pages/hospital/Hrecord";
 import PrivateRoute from "./pages/PrivateRoute";
 
+
+
+
 class Routes extends React.Component {
   render() {
     return (
@@ -30,14 +33,14 @@ class Routes extends React.Component {
         <Route exact path="/donorlogin" component={DonorLogin} />
         <Route exact path="/signup" component={DonorSignUp} />
         <Route exact path="/contact" component={Contact} />
-        <Route exact path="/hospital/Approve-Donor" component={Happrove} />
+        <Route exact path="/hospital/Approve-Donor" component={Happrove} authenticated={this.props.authenticated}/>
         <Route exact path="/donor/list" component={HospitalList} />
-        <PrivateRoute exact path="/hospital/nav" component={HospitalNav} authenticated={this.props.authenticated} />
-        <PrivateRoute exact path="/hospital/test" component={HospitalTest} authenticated={this.props.authenticated} />
-        <PrivateRoute exact path="/hospital/Profile" component={Hprofile} authenticated={this.props.authenticated} />
-        <PrivateRoute exact path="/hospital/Register-Recipient" component={Hregister} authenticated={this.props.authenticated} />
-        <PrivateRoute exact path="/hospital/Transplant-Match" component={Hmatch} authenticated={this.props.authenticated} />
-        <PrivateRoute exact path="/hospital/Patient-Record" component={Hrecord} authenticated={this.props.authenticated} />
+        <Route exact path="/hospital/nav" component={HospitalNav} authenticated={this.props.authenticated} />
+        <Route exact path="/hospital/test" component={HospitalTest} authenticated={this.props.authenticated} />
+        <Route exact path="/hospital/Profile" component={Hprofile} authenticated={this.props.authenticated} />
+        <Route exact path="/hospital/Register-Recipient" component={Hregister} authenticated={this.props.authenticated} />
+        <Route exact path="/hospital/Transplant-Match" component={Hmatch} authenticated={this.props.authenticated} />
+        <Route exact path="/hospital/Patient-Record" component={Hrecord} authenticated={this.props.authenticated} />
         {!this.props.authenticated ?
           <Route exact path="/hospital" render={() => (<HospitalLogin loginUser={(data) => this.props.loginUser(data)} />)} />
           : <Redirect to="/hospital/Profile" />

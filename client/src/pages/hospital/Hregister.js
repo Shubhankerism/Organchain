@@ -30,26 +30,14 @@ class FormsPage extends React.Component {
   }
   componentDidMount = async () => {
     console.log("Hello from recipient register");
-  //   const user = jwtDecode(window.localStorage.getItem("token"));
-  //  this.setState({hkey:user.hospitalpublickey})
-  //   // Get network provider and web3 instance.
-  //   const web3 = await getWeb3();
-  //   // Use web3 to get the user's accounts.
-  //   const accounts = await web3.eth.getAccounts();
-  //   this.setState({ account: accounts[0] });
-  //   console.log("accounts"+this.state.account);
+    const user = await jwtDecode(window.localStorage.getItem("token"));
+   this.setState({hkey:user.user.hospitalpublickey})
+   console.log(this.state.hkey);
+    const acc = await window.localStorage.getItem("web3account");
+        this.setState({ account: acc });
+        console.log(this.state.account);
 }
-//   componentDidMount = async () => {
 
-//     // // console.log(this.state.hkey);
-//     // console.log(user);
-//     // Get network provider and web3 instance.
-//     const web3 = await getWeb3();
-//     // Use web3 to get the user's accounts.
-//     const accounts = await web3.eth.getAccounts();
-//     this.setState({ account: accounts[0] });
-//     console.log(this.state.account);
-// }
 onfileChange(e) {
   event.preventDefault()
   const file = e.target.files[0]
@@ -106,7 +94,7 @@ onfileChange(e) {
               }
           });
 
-  }, 18000);
+  }, 25000);
     
   };
 

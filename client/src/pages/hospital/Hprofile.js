@@ -17,19 +17,33 @@ class Hprofile extends React.Component {
     imgurl: './images/hospital.jpg'
 
   }
+red()
+{
+  console.log("fhj");
+  window.localStorage.setItem("firstLoad","true");
+      window.location.reload();
 
+}
   componentDidMount =  async ()=>  {
     console.log("token= " + window.localStorage.getItem("token"));
     const user = jwtDecode(window.localStorage.getItem("token"));
     console.log("ye le user : ")
     console.log(user);
     this.setState({ ...user.user });
+    const bar=await window.localStorage.getItem("firstLoad");
+    setTimeout(() => {
+      console.log(bar);
+    {bar?null:this.red.bind()}
+  },5000);
+    
      // Get network provider and web3 instance.
-     const web3 = await getWeb3();
-     // Use web3 to get the user's accounts.
-     const accounts = await web3.eth.getAccounts();
-     this.setState({ account: accounts[0] });
-     console.log(this.state.account);
+        const web3 = await getWeb3();
+        console.log("kuch bhi");
+        // Use web3 to get the user's accounts.
+        const accounts = await web3.eth.getAccounts();
+        console.log(accounts[0]);
+        window.localStorage.setItem("web3account",accounts[0]);
+
   }
 
   render() {

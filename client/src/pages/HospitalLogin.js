@@ -15,7 +15,7 @@ class FormPage extends React.Component {
       username: null,
       password: null,
       authenticated: false
-    }
+    } 
   }
 
   componentDidMount() {
@@ -51,10 +51,9 @@ class FormPage extends React.Component {
         }
 
 
-
-        //this.props.history.push('/hospital/Profile');
+       
       })
-      // .then(()=>this.props.history.push('/hospital/Profile'))
+      
       .catch((err) => window.alert(err));
   }
   render() {

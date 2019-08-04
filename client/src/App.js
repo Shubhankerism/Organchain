@@ -81,7 +81,7 @@
                       <MDBNavLink to="/policy">Policy</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="/donorlogin">Donor Login</MDBNavLink>
+                    {!this.state.authenticated?<MDBNavLink to="/donorlogin">Donor Login</MDBNavLink>:null}
                     </MDBNavItem>
                     <MDBNavItem>
                       <MDBNavLink id="hospital" to={!this.state.authenticated?"/hospital":"/hospital/Profile"}>Hospital {!this.state.authenticated?"Login":null} </MDBNavLink>:
@@ -90,7 +90,8 @@
                       <MDBNavLink to="/contact">Contact Us</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="/signup">Donor Sign Up</MDBNavLink>
+                    {!this.state.authenticated? <MDBNavLink to="/signup">Donor Sign Up</MDBNavLink>:null}
+                     
                     </MDBNavItem>
                     <MDBNavItem>
                       {this.state.authenticated?<a className="nav-link Ripple-parent" onClick={this.logoutUser.bind(this)}>

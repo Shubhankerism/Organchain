@@ -14,10 +14,6 @@ const hlist = [
   {
       title: "first",
       body: "First body"
-  },
-  {
-      title:"second",
-      body:"Second body"
   }
   
 ];
@@ -34,20 +30,21 @@ const CardExample = (props) => {
           <MDBCardText>
            {props.list.body}
           </MDBCardText>
-          <MDBBtn href="#" className="text-center btn btn-primary">Select</MDBBtn>
+          {/* <MDBBtn href="#" className="text-center btn btn-primary">Select</MDBBtn> */}
         </MDBCardBody>
       </MDBCard>
     </MDBCol>
   )
 }
 
-
+ 
 
 const HospitalList = () => {
     
     const obj = hlist.map((listItem) => 
     <CardExample list= {listItem}/>
     );
+    console.log(obj);
     return (
 
         <div>

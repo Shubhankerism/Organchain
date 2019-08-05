@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 // import Home from "./pages/Home";
 
-import HospitalList from "./pages/donor/HospitalList";
+import HospitalList from "./pages/HospitalList";
 import HospitalTest from "./pages/hospital/test";
 
 import HospitalNav from "./pages/hospital/HospitalNav";

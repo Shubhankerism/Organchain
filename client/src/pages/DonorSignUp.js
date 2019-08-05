@@ -21,11 +21,12 @@ class FormsPage extends React.Component {
     axios.post('/api/adddonor',{name, address, city, email, contact, bloodgroup, organ})
   .then(function (response) {
     console.log(response);
+    this.context.history.push('/donor/list');
   })
   .catch(function (error) {
     console.log(error);
   });
-    
+  
   };
 
   changeHandler = event => {
@@ -118,6 +119,7 @@ class FormsPage extends React.Component {
                 id="materialFormRegisterConfirmEx3"
                 name="email"
                 label="Your Email address"
+                required
               >
                 <small id="emailHelp" className="form-text text-muted">
                   We'll never share your email with anyone else.
@@ -132,10 +134,11 @@ class FormsPage extends React.Component {
             <MDBInput
                 value={this.state.bloodgroup}
                 onChange={this.changeHandler}
-                type="email"
+                type="text"
                 id="materialFormRegisterConfirmEx3"
                 name="bloodgroup"
                 label="Your Blood Group"
+                required
               >
                
               </MDBInput>
@@ -156,7 +159,7 @@ class FormsPage extends React.Component {
           </MDBRow>
          
           <MDBRow center>
-          <MDBBtn color="success" type="submit">
+          <MDBBtn color="success" type="submit" >
             Submit Form
           </MDBBtn>
           </MDBRow>

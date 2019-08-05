@@ -98,10 +98,10 @@ class Hrecord extends React.Component {
                                 console.log("donor gaya in blockchain");
                             }
                         });
-            //             axios.get(`/api/deletedonor/${this.state.name}/${this.state.email}`)
-            //             .then(async (res) => {
-            //     console.log(res);
-            // });
+                axios.get(`/api/deletedonor/${this.state.name}/${this.state.email}`)
+                .then(async (res) => {
+                console.log(res);
+                });
 
                 }, 15000);
 

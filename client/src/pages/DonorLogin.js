@@ -3,6 +3,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, M
 import './css/HomePage.css';
 import OC from './oc';
 import ipfs from './ipfs';
+import axios from 'axios';
 
 class FormPage extends React.Component {
 
@@ -20,6 +21,10 @@ class FormPage extends React.Component {
     demail: '',
     dcontact: '',
     hid: '',
+    haddress:'',
+    hname:'',
+    hcity:'',
+    hcontact:'',
     rflag:false,
     rhash: '',
     rorgan: '',
@@ -109,6 +114,16 @@ class FormPage extends React.Component {
             });
             console.log(this.state);
           });
+          axios.get(`/api/hospitalbykey/${this.state.hid}`)
+            .then(async (res) => {
+                console.log(res);
+                this.setState({
+                    haddress: res.data[0].address,
+                    hcity: res.data[0].city,
+                    hcontact: res.data[0].contact,
+                    hname: res.data[0].username
+                });
+              });
         });
       }
     }, 3000);
@@ -203,12 +218,20 @@ class FormPage extends React.Component {
                 
                 </div>
                 <MDBCardBody className="mx-4">
+                {this.state.rflag?
                 <MDBCardText>
-                  <h5 className="font-weight-bold">Hospital ID:</h5> {this.state.hid} <br />
+                  <h5 className="font-weight-bold">Name:</h5> {this.state.hname} <br />
+                  <h5 className="font-weight-bold">HospitalID:</h5> {this.state.hid} <br />
+                  <h5 className="font-weight-bold">Address:</h5> {this.state.haddress} <br />
+                  <h5 className="font-weight-bold">Contact:</h5> {this.state.hcontact}<br />
+                  <h5 className="font-weight-bold">City:</h5> {this.state.hcity}<br />
                  
                   
                 </MDBCardText>
-
+                 : <MDBCardText>
+                  <h5 className="font-weight-bold">Sorry, you haven't been assigned a recipient yet!</h5> <br />
+                </MDBCardText>}
+                
                 </MDBCardBody>
               </MDBCard>
               :null  }
@@ -232,7 +255,7 @@ class FormPage extends React.Component {
                   <h5 className="font-weight-bold">Address:</h5> {this.state.raddress} <br />
                   <h5 className="font-weight-bold">Contact:</h5> {this.state.rcontact}<br />
                   <h5 className="font-weight-bold">City:</h5> {this.state.rcity}<br />
-                  <h5 className="font-weight-bold">DonorID:</h5> {this.state.rid} <br />
+                  <h5 className="font-weight-bold">RecipientID:</h5> {this.state.rid} <br />
                   <h5 className="font-weight-bold">Organ:</h5> {this.state.rorgan} <br />
                   <h5 className="font-weight-bold">Blood Group:</h5> {this.state.rbgroup} <br />
                   <h5 className="font-weight-bold">Email:</h5> {this.state.remail} <br />

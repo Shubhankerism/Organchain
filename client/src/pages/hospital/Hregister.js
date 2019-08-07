@@ -91,6 +91,7 @@ onfileChange(e) {
               }
               else if (result.status == true) {
                   console.log("recipient gaya in blockchain");
+                  window.alert("The recipient has been registered successfully!");
               }
           });
 
@@ -196,6 +197,7 @@ onfileChange(e) {
 <label className="mt-3 text-muted">
                 Pick city:
    <select value={this.state.city} name="city" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+   <option>Choose your option</option>
                   <option value="New Delhi">New Delhi</option>
                   <option value="Pune">Pune</option>
                   <option value="Gwalior">Gwalior</option>
@@ -240,6 +242,7 @@ onfileChange(e) {
 <label className="mt-3 text-muted">
                 Pick Blood Group:
    <select value={this.state.bgroup} name="bgroup" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+   <option>Choose your option</option>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
                   <option value="B+">B+</option>
@@ -268,6 +271,7 @@ onfileChange(e) {
 <label className="mt-3 text-muted">
                 What does he/she need?
    <select value={this.state.organ} name="organ" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+   <option>Choose your option</option>
                   <option value="Blood">Blood</option>
                   <option value="Eyes">Eyes</option>
                   <option value="Heart">Heart</option>

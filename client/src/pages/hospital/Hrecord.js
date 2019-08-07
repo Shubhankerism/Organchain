@@ -25,6 +25,7 @@ class Hrecord extends React.Component {
         OC.methods.EMR(this.state.donorkey).call().then((emrhash) => {
             this.setState({ EMRHash: emrhash });
             console.log(this.state.EMRHash);
+           
         });
         console.log("https://ipfs.io/ipfs/${this.state.EMRHash}`")
         

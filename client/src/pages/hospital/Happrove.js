@@ -96,10 +96,12 @@ class Hrecord extends React.Component {
                             }
                             else if (result.status == true) {
                                 console.log("donor gaya in blockchain");
+                                window.alert("The donor has been approved successfully!")
                             }
                         });
                 axios.get(`/api/deletedonor/${this.state.name}/${this.state.email}`)
                 .then(async (res) => {
+                
                 console.log(res);
                 });
 

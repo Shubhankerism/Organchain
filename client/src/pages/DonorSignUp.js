@@ -117,6 +117,7 @@ class FormsPage extends React.Component {
               <label className="mt-3 text-muted">
                 Pick your city:
    <select value={this.state.city} name="city" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+   <option>Choose your option</option>
                   <option value="New Delhi">New Delhi</option>
                   <option value="Pune">Pune</option>
                   <option value="Gwalior">Gwalior</option>
@@ -161,6 +162,7 @@ class FormsPage extends React.Component {
               <label className="mt-3 text-muted">
                 Pick your Blood Group:
    <select value={this.state.bloodgroup} name="bloodgroup" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+   <option>Choose your option</option>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
                   <option value="B+">B+</option>
@@ -191,6 +193,7 @@ class FormsPage extends React.Component {
               <label className="mt-3 text-muted">
                 What would you like to donate?
    <select value={this.state.organ} name="organ" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+   <option>Choose your option</option>
                   <option value="Blood">Blood</option>
                   <option value="Eyes">Eyes</option>
                   <option value="Heart">Heart</option>

@@ -15,7 +15,7 @@ var hospitals= [new Hospi({
 	address: 'Survey No. 32/2A, Pune, Maharashtra',
 	contact: '020-25434063',
 	city: 'Pune',
-	imgurl: './public/images/ace.jpg'
+	imgurl: './images/ace.jpg'
 }),
 new Hospi({
 	username: 'AIIMS Delhi',
@@ -24,7 +24,7 @@ new Hospi({
 	address: 'Aurobindo Marg, New Delhi',
 	contact: '011-26588500',
 	city: 'New Delhi',
-	imgurl: './public/images/aiims.jpg'
+	imgurl: './images/aiims.jpg'
 }),
 new Hospi({
 	username: 'Fortis Hospital',
@@ -33,7 +33,7 @@ new Hospi({
 	address: 'Sector B-1, vasant kunj, New Delhi',
 	contact: '011-42776222',
 	city: 'New Delhi',
-	imgurl: './public/images/fortis.jpg'
+	imgurl: './images/fortis.jpg'
 }),
 new Hospi({
 	username: 'GB Pant Hospital',
@@ -42,7 +42,7 @@ new Hospi({
 	address: '1, Jawahar Lal Nehru Marg, New Delhi',
 	contact: '011-23234242',
 	city: 'New Delhi',
-	imgurl: './public/images/gbpant.jpg'
+	imgurl: './images/gbpant.jpg'
 }),
 new Hospi({
 	username: 'Birla Hospital',
@@ -51,7 +51,7 @@ new Hospi({
 	address: 'Surya Mandir Road, Near Sun Temple, Opposite Mahaveer Residency, Gwalior, Madhya Pradesh',
 	contact: '0751-2405659',
 	city: 'Gwalior',
-	imgurl: './public/images/birla.jpg'
+	imgurl: './images/birla.jpg'
 }),
 new Hospi({
 	username: 'Apollo Hospital',
@@ -60,7 +60,7 @@ new Hospi({
 	address: '18, Kila Gate Road, Vikas Nagar, Near Sai Baba Mandir, Gwalior, Madhya Pradesh',
 	contact: '0751-2454600',
 	city: 'Gwalior',
-	imgurl: './public/images/apollo.jpg'
+	imgurl: './images/apollo.jpg'
 }),
 new Hospi({
 	username: 'Sahara Hospital',
@@ -69,7 +69,7 @@ new Hospi({
 	address: '19 A, Vijay Nagar Extension, Basant Vihar Colony, Lashkar, Gwalior, Madhya Pradesh',
 	contact: '09926800870',
 	city: 'Gwalior',
-	imgurl: './public/images/sahara.jpg'
+	imgurl: './images/sahara.jpg'
 }),
 new Hospi({
 	username: 'Columbia Asia Hospital',
@@ -78,7 +78,7 @@ new Hospi({
 	address: '22, 2A, Mundhwa - Kharadi Rd, Near Nyati Empire, Santipur, Thite Nagar, Kharadi, Pune, Maharashtra',
 	contact: '020-71290222',
 	city: 'Pune',
-	imgurl: './public/images/columbia.jpg'
+	imgurl: './images/columbia.jpg'
 })];
 var done=0;
 for(var i=0;i<hospitals.length;i++)

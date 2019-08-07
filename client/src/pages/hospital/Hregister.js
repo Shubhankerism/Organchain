@@ -178,7 +178,7 @@ onfileChange(e) {
           </MDBRow>
           <MDBRow center>  
             <MDBCol md="4">
-              <MDBInput
+              {/* <MDBInput
                 value={this.state.city}
                 onChange={this.changeHandler}
                 type="text"
@@ -191,7 +191,19 @@ onfileChange(e) {
                   Please provide a valid zip.
                 </div>
                 <div className="valid-feedback">Looks good!</div>
-              </MDBInput>
+              </MDBInput> */}
+
+<label className="mt-3 text-muted">
+                Pick city:
+   <select value={this.state.city} name="city" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+                  <option value="New Delhi">New Delhi</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Gwalior">Gwalior</option>
+
+                </select>
+              </label>
+
+
             </MDBCol>
 
             <MDBCol md="4">
@@ -213,20 +225,36 @@ onfileChange(e) {
 
           <MDBRow center>
             <MDBCol md="4">
-            <MDBInput
+            {/* <MDBInput
                 value={this.state.bgroup}
                 onChange={this.changeHandler}
                 type="email"
                 id="materialFormRegisterConfirmEx3"
                 name="bgroup"
                 label="Your Blood Group"
+                required
               >
                
-              </MDBInput>
+              </MDBInput> */}
+
+<label className="mt-3 text-muted">
+                Pick Blood Group:
+   <select value={this.state.bgroup} name="bgroup" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+
+                </select>
+              </label>
             </MDBCol>
             
             <MDBCol md="4">
-              <MDBInput
+              {/* <MDBInput
                 value={this.state.organ}
                 onChange={this.changeHandler}
                 type="text"
@@ -235,7 +263,21 @@ onfileChange(e) {
                 label="Organ"
                 required
               >
-              </MDBInput>
+              </MDBInput> */}
+
+<label className="mt-3 text-muted">
+                What does he/she need?
+   <select value={this.state.organ} name="organ" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+                  <option value="Blood">Blood</option>
+                  <option value="Eyes">Eyes</option>
+                  <option value="Heart">Heart</option>
+                  <option value="Lungs">Lungs</option>
+                  <option value="Kidney">Kidney</option>
+
+
+                </select>
+              </label>
+
             </MDBCol>
           </MDBRow>
           <MDBRow center>

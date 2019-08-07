@@ -123,9 +123,9 @@ class FormPage extends React.Component {
             <MDBCol md="6" className="mx-auto">
               {!this.state.dflag?
               <MDBCard>
-                <div className="header pt-3 blue-gradient">
+                <div className="header pt-3 rainy-ashville-gradient">
                   <MDBRow className="d-flex justify-content-center">
-                    <h3 className="white-text mb-3 pt-3 font-weight-bold">
+                    <h3 className="white-text mb-3 pt-3  h3 display-3">
                       Donor Log in
                 </h3>
                   </MDBRow>

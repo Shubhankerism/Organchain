@@ -44,6 +44,7 @@ class JumbotronPage extends Component {
     }).then((result) => {
       if (result.status == false) {
         console.log("No match found");
+        window.alert("Sorry, no match found!");
       }
       else if (result.status == true) {
         console.log("Match found");
@@ -91,7 +92,7 @@ class JumbotronPage extends Component {
             <MDBJumbotron>
 
               {
-                this.state.f ? <div>
+                this.state.f ? <div className="dusty-grass-gradient">
                   <h2 className="h1 display-3">Donor: {this.state.dname}</h2>
                   <p className="lead">
                     {this.state.did}
@@ -105,29 +106,35 @@ class JumbotronPage extends Component {
                     <h5 className="font-weight-bold">Address:</h5>  {this.state.daddress} <br />
                     <h5 className="font-weight-bold">City:</h5> {this.state.dcity} <br />
                   </p>
-                 
+
                   <hr className="my-2" /> <hr className="my-2" />
                 </div>
-                
+
                   : null
               }
-              <h2 className="h1 display-3">Recipient: {this.state.list.name}</h2>
-              <p className="lead">
-                {this.state.list.key}
-              </p>
-              <hr className="my-2" />
-              <p className="lead">
-                <h5 className="font-weight-bold">Blood Group:</h5>  {this.state.list.bgroup} <br />
-                <h5 className="font-weight-bold">Organ:</h5>  {this.state.list.organ} <br />
-                <h5 className="font-weight-bold">Email:</h5>  {this.state.list.email} <br />
-                <h5 className="font-weight-bold">Contact:</h5>  {this.state.list.contact} <br />
-                <h5 className="font-weight-bold">Address:</h5>  {this.state.list.address} <br />
-                <h5 className="font-weight-bold">City:</h5> {this.state.list.city} <br />
-              </p>
-              <p className="lead">
-                <MDBBtn color="primary" onClick={this.onSubmit.bind(this)}>Match</MDBBtn>
-              </p>
+              <div className="rare-wind-gradient">
+                <h2 className="h1 display-3 ">Recipient: {this.state.list.name}</h2>
+                <p className="lead">
+                  {this.state.list.key}
+                </p>
+                <hr className="my-2" />
+                <p className="lead">
+                  <h5 className="font-weight-bold">Blood Group:</h5>  {this.state.list.bgroup} <br />
+                  <h5 className="font-weight-bold">Organ:</h5>  {this.state.list.organ} <br />
+                  <h5 className="font-weight-bold">Email:</h5>  {this.state.list.email} <br />
+                  <h5 className="font-weight-bold">Contact:</h5>  {this.state.list.contact} <br />
+                  <h5 className="font-weight-bold">Address:</h5>  {this.state.list.address} <br />
+                  <h5 className="font-weight-bold">City:</h5> {this.state.list.city} <br />
+                </p>
+                {
+                  this.state.f ? null :
 
+                    <p className="lead">
+                      <MDBBtn color="primary" onClick={this.onSubmit.bind(this)}>Match</MDBBtn>
+                    </p>
+                }
+                <br />
+              </div>
             </MDBJumbotron>
           </MDBCol>
         </MDBRow>
@@ -220,16 +227,18 @@ export default class Hmatch extends Component {
         {this.state.rec[0] ? <MDBContainer className="">
           {console.log("render ke andar: " + this.state.rec)}
           <HosDrawer />
-          {/* {obj} */}
+
           {console.log("chal gaya")}
           {this.state.flag ?
             <Rlist buy={this.state.rec} />
             : console.log("null null")}
 
         </MDBContainer> : <div>
-            <div class="spinner-border mx-auto mt-5" role="status">
 
-              <span class="sr-only">Loading...</span>
+            <div class="d-flex justify-content-center mt-5">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
             </div>
             {console.log("Loading")}
           </div>

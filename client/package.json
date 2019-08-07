@@ -12,7 +12,8 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "0.9.5",
-    "web3": "^1.2.0"
+    "web3": "^1.2.0",
+    "react-bootstrap-sidebar": "0.0.1"
   },
   "devDependencies": {},
   "proxy": "http://localhost:8080",

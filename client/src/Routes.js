@@ -13,6 +13,8 @@ import NotFound from "./pages/NotFound";
 import HospitalList from "./pages/HospitalList";
 import HospitalTest from "./pages/hospital/test";
 
+import Hnav from "./pages/hospital/Hnav";
+
 import HospitalNav from "./pages/hospital/HospitalNav";
 import Hprofile from "./pages/hospital/Hprofile";
 import Happrove from "./pages/hospital/Happrove";
@@ -34,8 +36,9 @@ class Routes extends React.Component {
         <Route exact path="/signup" component={DonorSignUp} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/hospital/Approve-Donor" component={Happrove} authenticated={this.props.authenticated}/>
-        <Route exact path="/donor/list" component={HospitalList} />
+        <Route exact path="/donor/list/:city" component={HospitalList} />
         <Route exact path="/hospital/nav" component={HospitalNav} authenticated={this.props.authenticated} />
+        <Route exact path="/hospital/hnav" component={Hnav} authenticated={this.props.authenticated} />
         <Route exact path="/hospital/test" component={HospitalTest} authenticated={this.props.authenticated} />
         <Route exact path="/hospital/Profile" component={Hprofile} authenticated={this.props.authenticated} />
         <Route exact path="/hospital/Register-Recipient" component={Hregister} authenticated={this.props.authenticated} />

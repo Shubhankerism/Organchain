@@ -7,7 +7,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon } from "mdbreac
 class Hrecord extends React.Component {
 
     state = {
-        donorkey: '0xc6c2F9DDe6e4F266B1B54185DFDEA8797c3476DB',
+        donorkey: '',
         account: null,
         EMRHash: ''
     }
@@ -41,7 +41,7 @@ class Hrecord extends React.Component {
 
                         <MDBCol>
 
-                            <p className="h5 text-center mb-4 mt-12">Enter Details to get EMR</p>
+                            <p className="h5 text-center mb-4 mt-12 h1 display-4">Enter Details to get EMR</p>
                             <div className="grey-text">
                                 <MDBInput
                                     label="Donor Public Key"

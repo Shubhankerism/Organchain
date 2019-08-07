@@ -2,7 +2,7 @@ import React from "react";
 import HosDrawer from "./HospitalNav";
 import jwtDecode from 'jwt-decode';
 import { MDBJumbotron, MDBContainer, MDBRow, MDBCol, MDBCardTitle, MDBCardImage, MDBCardBody, MDBCardText } from "mdbreact";
-import hospital from "./images/hospital.png";
+//import hospital from "./imagez/hospital.png";
 import getWeb3 from "./getWeb3";
 import OC from './oc';
 
@@ -17,26 +17,28 @@ class Hprofile extends React.Component {
     imgurl: './images/hospital.jpg'
 
   }
-red()
-{
-  console.log("fhj");
-  window.localStorage.setItem("firstLoad","true");
-      window.location.reload();
+// red()
+// {
+//   console.log("fhj");
+//   window.localStorage.setItem("firstLoad","true");
+//       window.location.reload();
 
-}
+// }
 
 
-  componentDidMount =  async ()=>  {
+  componentWillMount =  async ()=>  {
+   
+    //this.setState({imgurl:require(this.state.imgurl)});
     console.log("token= " + window.localStorage.getItem("token"));
     const user = jwtDecode(window.localStorage.getItem("token"));
     console.log("ye le user : ")
     console.log(user);
     this.setState({ ...user.user });
-    const bar=await window.localStorage.getItem("firstLoad");
-    setTimeout(() => {
-      console.log(bar);
-    {bar?null:this.red.bind()}
-  },5000);
+  //   const bar=await window.localStorage.getItem("firstLoad");
+  //   setTimeout(() => {
+  //     console.log(bar);
+  //   {bar?null:this.red.bind()}
+  // },5000);
     
      // Get network provider and web3 instance.
         const web3 = await getWeb3();
@@ -45,25 +47,30 @@ red()
         const accounts = await web3.eth.getAccounts();
         console.log(accounts[0]);
         window.localStorage.setItem("web3account",accounts[0]);
-
+        
+    
   }
+  
 
   render() {
+    const img = require(`${this.state.imgurl}`);
+    //const i = require( './images/aiims.jpg');
     return (
       <MDBContainer className="mt-5 text-center">
         <MDBRow size="2">
           <HosDrawer />
         </MDBRow>
 
-        <MDBRow size="8" style={{ marginLeft: 180 }}>
+        <MDBRow size="8" style={{ marginLeft: 100, marginTop: 60}} className="">
           <MDBCol>
-            <MDBJumbotron className="text-center">
-              <MDBCardTitle className="card-title h4 pb-2">
+            <MDBJumbotron className="text-center deep-blue-gradient">
+              <MDBCardTitle className="card-title  h1 display-3">
                 <strong>{this.state.username}</strong>
               </MDBCardTitle>
 
               <MDBCardImage
-                src={hospital}
+                 //src="https://www.javatpoint.com/fullformpages/images/aiims.png"
+                src={img}
                 className="img-fluid mx-auto"
               />
               <MDBCardBody>

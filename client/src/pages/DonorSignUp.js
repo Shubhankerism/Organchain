@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBRow, MDBCol, MDBInput, MDBBtn} from "mdbreact";
+import { MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import axios from "axios";
 
 
@@ -11,22 +11,26 @@ class FormsPage extends React.Component {
     email: "",
     contact: "",
     bloodgroup: "",
-    organ: ""
+    organ: "",
+    flag: false
   };
 
   submitHandler = event => {
     event.preventDefault();
     event.target.className += " was-validated";
     const { name, address, city, email, contact, bloodgroup, organ } = this.state;
-    axios.post('/api/adddonor',{name, address, city, email, contact, bloodgroup, organ})
-  .then(function (response) {
-    console.log(response);
-    this.context.history.push('/donor/list');
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  
+    axios.post('/api/adddonor', { name, address, city, email, contact, bloodgroup, organ })
+      .then(function (response) {
+        console.log(response);
+        // this.setState({flag:true});
+        window.location = "/donor/list/" + city;
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    console.log(this.state);
+    //this.state.flag? this.context.history.push('/donor/list'):null;
   };
 
   changeHandler = event => {
@@ -37,20 +41,20 @@ class FormsPage extends React.Component {
     return (
       <div >
         <MDBRow>
-        <MDBCol>
-          {/* <MDBJumbotron> */}
+          <MDBCol>
+            {/* <MDBJumbotron> */}
             <h4 className="h3 display-3 text-center mt-5 mb-5" >New Donor? Sign up here!</h4>
-           
-          {/* </MDBJumbotron> */}
-        </MDBCol>
-      </MDBRow>
+
+            {/* </MDBJumbotron> */}
+          </MDBCol>
+        </MDBRow>
         <form
           className="needs-validation"
           onSubmit={this.submitHandler}
           noValidate
         >
           <MDBRow center>
-          <MDBCol md="4">
+            <MDBCol md="4">
               <MDBInput
                 value={this.state.name}
                 name="name"
@@ -66,7 +70,7 @@ class FormsPage extends React.Component {
           </MDBRow>
           <MDBRow center>
             <MDBCol md="4">
-            <MDBInput
+              <MDBInput
                 value={this.state.contact}
                 onChange={this.changeHandler}
                 type="text"
@@ -75,10 +79,10 @@ class FormsPage extends React.Component {
                 label="Contact"
                 required
               >
-            <div className="valid-feedback">Looks good!</div>
+                <div className="valid-feedback">Looks good!</div>
               </MDBInput>
             </MDBCol>
-           
+
             <MDBCol md="4">
               <MDBInput
                 value={this.state.address}
@@ -89,19 +93,19 @@ class FormsPage extends React.Component {
                 label="Address"
                 required
               >
-            <div className="valid-feedback">Looks good!</div>
+                <div className="valid-feedback">Looks good!</div>
               </MDBInput>
             </MDBCol>
           </MDBRow>
-          <MDBRow center>  
+          <MDBRow center>
             <MDBCol md="4">
-              <MDBInput
+              {/* <MDBInput
                 value={this.state.city}
                 onChange={this.changeHandler}
                 type="text"
                 id="materialFormRegisterPasswordEx4"
                 name="city"
-                label="Zip"
+                label="City"
                 required
               >
                 <div className="invalid-feedback">
@@ -109,6 +113,17 @@ class FormsPage extends React.Component {
                 </div>
                 <div className="valid-feedback">Looks good!</div>
               </MDBInput>
+   */}
+              <label className="mt-3 text-muted">
+                Pick your city:
+   <select value={this.state.city} name="city" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+                  <option value="New Delhi">New Delhi</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Gwalior">Gwalior</option>
+
+                </select>
+              </label>
+
             </MDBCol>
 
             <MDBCol md="4">
@@ -131,7 +146,7 @@ class FormsPage extends React.Component {
 
           <MDBRow center>
             <MDBCol md="4">
-            <MDBInput
+              {/* <MDBInput
                 value={this.state.bloodgroup}
                 onChange={this.changeHandler}
                 type="text"
@@ -140,12 +155,29 @@ class FormsPage extends React.Component {
                 label="Your Blood Group"
                 required
               >
-               
-              </MDBInput>
+
+              </MDBInput> */}
+
+              <label className="mt-3 text-muted">
+                Pick your Blood Group:
+   <select value={this.state.bloodgroup} name="bloodgroup" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+
+                </select>
+              </label>
+
+
             </MDBCol>
-            
+
             <MDBCol md="4">
-              <MDBInput
+              {/* <MDBInput
                 value={this.state.organ}
                 onChange={this.changeHandler}
                 type="text"
@@ -154,16 +186,30 @@ class FormsPage extends React.Component {
                 label="Organ"
                 required
               >
-              </MDBInput>
+              </MDBInput> */}
+
+              <label className="mt-3 text-muted">
+                What would you like to donate?
+   <select value={this.state.organ} name="organ" onChange={this.changeHandler} class="browser-default custom-select mt-1">
+                  <option value="Blood">Blood</option>
+                  <option value="Eyes">Eyes</option>
+                  <option value="Heart">Heart</option>
+                  <option value="Lungs">Lungs</option>
+                  <option value="Kidney">Kidney</option>
+
+
+                </select>
+              </label>
+
             </MDBCol>
           </MDBRow>
-         
+
           <MDBRow center>
-          <MDBBtn color="success" type="submit" >
-            Submit Form
+            <MDBBtn color="success" type="submit" >
+              Submit Form
           </MDBBtn>
           </MDBRow>
-          
+
         </form>
       </div>
     );

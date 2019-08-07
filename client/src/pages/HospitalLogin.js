@@ -66,15 +66,15 @@ class FormPage extends React.Component {
               <MDBCard>
                 <div className="header pt-3 peach-gradient">
                   <MDBRow className="d-flex justify-content-center">
-                    <h3 className="white-text mb-3 pt-3 font-weight-bold">
-                      Hospital Log in
+                    <h3 className="white-text mb-3 pt-3 h3 display-3">
+                      Hospital Log In
                 </h3>
                   </MDBRow>
                 </div>
                 <MDBCardBody className="mx-4">
 
                   <MDBInput
-                    label="Your email"
+                    label="Your Name"
                     group
                     type="text"
                     validate

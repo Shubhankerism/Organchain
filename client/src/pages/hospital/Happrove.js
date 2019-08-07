@@ -115,11 +115,11 @@ class Hrecord extends React.Component {
             <MDBContainer className="">
                 <HosDrawer />
                 <form>
-                    <MDBRow className="mt-5" >
+                    <MDBRow className="mt-5"  >
 
                         <MDBCol>
 
-                            <p className="h5 text-center mb-4 mt-12">Enter Details</p>
+                            <p className="h5 text-center mb-4 mt-12 h1 display-3">Enter Details</p>
                             <div className="grey-text">
                                 <MDBInput
                                     label="name"

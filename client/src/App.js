@@ -34,6 +34,7 @@
         window.localStorage.setItem("isAuthenticated","true");
         window.localStorage.setItem("token",data.token);
          window.localStorage.setItem("firstLoad","false");
+         
 
         // // Get network provider and web3 instance.
         // const web3 = await getWeb3();
@@ -46,6 +47,7 @@
 
         this.setState({authenticated:true, }, () => {
           document.querySelector("#hospital").click();
+          window.location.reload();
         });
       }
 
@@ -84,8 +86,17 @@
                     {!this.state.authenticated?<MDBNavLink to="/donorlogin">Donor Login</MDBNavLink>:null}
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink id="hospital" to={!this.state.authenticated?"/hospital":"/hospital/Profile"}>Hospital {!this.state.authenticated?"Login":null} </MDBNavLink>:
+                      <MDBNavLink id="hospital" to={!this.state.authenticated?"/hospital":"/hospital/Profile"}> {!this.state.authenticated?" Hospital Login":"Profile"} </MDBNavLink>:
                     </MDBNavItem>
+                    {
+                      this.state.authenticated?[ 'Approve-Donor', 'Register-Recipient','Transplant-Match', 'Patient-Record'].map((text, index) => (
+                        <MDBNavItem>
+                                 <MDBNavLink to ={`/hospital/${text}`}>
+                                   {text}
+                                 </MDBNavLink>
+                        </MDBNavItem>         
+                               )):null
+                    }
                     <MDBNavItem>
                       <MDBNavLink to="/contact">Contact Us</MDBNavLink>
                     </MDBNavItem>
